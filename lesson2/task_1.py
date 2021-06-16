@@ -11,29 +11,18 @@ while True:
         print('Выход')
         break
     elif oper == '/' or '*' or '-' or '+':
+        a=float(input('Введите первое число: '))
+        b=float(input('Введите второе число: '))
         if oper == '/':
-            a=float(input('Введите первое число: '))
-            b=float(input('Введите второе число: '))
             if b == 0:
                 print(f'На {b} делить нельзя')               
             else:
                 print(f'Результат: {a/b}')
-                break
         elif oper == '*':
-            a=float(input('Введите первое число: '))
-            b=float(input('Введите второе число: '))
             print(f'Результат: {a*b}')
-            break
         elif oper == '-':
-            a=float(input('Введите первое число: '))
-            b=float(input('Введите второе число: '))
             print(f'Результат: {a-b}')
-            break
         elif oper == '+':
-            a=float(input('Введите первое число: '))
-            b=float(input('Введите второе число: '))
             print(f'Результат: {a+b}')
-            break
     else:
         print('Не верный тип операции '+ oper)
-        break
