@@ -15,7 +15,7 @@ for i in range(0, len(arr)):
     elif arr[i]>arr2[3]:
         arr2[2]=i
         arr2[3]=arr[i]
-for i in range(arr2[0], arr2[2]+1):
+for i in range(arr2[0]+1, arr2[2]):
     s+=arr[i]
 print(arr)
 print(arr2)
