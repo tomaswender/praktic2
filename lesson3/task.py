@@ -7,19 +7,3 @@
 #9. Найти максимальный элемент среди минимальных элементов столбцов матрицы.
 
 
-
-import random
-
-m=100
-arr=[]
-arr2=[m,m]
-
-for i in range(30):
-    arr.append(random.randint(0, m))
-print(arr)
-for i in arr:
-    if i<arr2[0]:
-        arr2[1], arr2[0] = arr2[0], i                
-    elif (i<arr2[1] and i>=arr2[0]):
-        arr2[1]=i
-print(arr2)
