@@ -1,7 +1,6 @@
 import cProfile
 # // данная реализация алгоритма была взята из интернета и после осмысления добавлена сюда
-def rehito():
-    n=10000
+def rehito(n):
     #n = int(input("Введите верхнюю границу диапазона: "))
     sieve = set(range(2, n+1))
     while sieve:
@@ -10,7 +9,7 @@ def rehito():
         sieve -= set(range(prime, n+1, prime))
     print(sieve)
 
-cProfile.run('rehito()')
+#cProfile.run('rehito(10000)')
 
 
 #        19189 function calls in 5.017 seconds
@@ -28,30 +27,41 @@ cProfile.run('rehito()')
 
 
 # // это было написано после прочтения устного описания алгоритма, формули из википедии не понял
-def rehito2():
-    n=10000
+def rehito2(n):
     list1 = list(range(2, n+1))
-    for i in list1:
+    for i in range(2,6):  # ограничел число вызовов что бы не проходить по всему списку
         for y in list1:
             if y%i==0 and y!=i:
                 list1.remove(y)
     #print(list1)
 #rehito()
-cProfile.run('rehito2()')
+cProfile.run('rehito2(10000)')
 
 
-#         190412 function calls in 20.836 seconds
+#         7335 function calls in 0.167 seconds
 #
 #   Ordered by: standard name
 #
 #   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-#        1    0.000    0.000   20.836   20.836 <string>:1(<module>)
-#        1    3.461    3.461   20.836   20.836 task.py:4(rehito)
-#        1    0.000    0.000   20.836   20.836 {built-in method builtins.exec}
-#   100000    0.007    0.000    0.007    0.000 {method 'append' of 'list' objects}
-#        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-#    90408   17.368    0.000   17.368    0.000 {method 'remove' of 'list' objects}
+#        1    0.000    0.000    0.167    0.167 <string>:1(<module>)
+#        1    0.002    0.002    0.167    0.167 task.py:31(rehito2)
+#        1    0.000    0.000    0.167    0.167 {built-in method builtins.exec}
+#       1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+#     7331    0.165    0.000    0.165    0.000 {method 'remove' of 'list' objects}
 
 # /// много времени уходит на перезапись листа
 
 # // разница во времени из-за того что я сохраняю список с простыми числами, а в первом способе список очищается, тем самым цыкл вновь не проходит по тем же значениям
+
+
+# // проверка любого числа
+
+def test(a):
+    for i in range(2,6):
+        if a%i==0:
+            print(f'Число  {a} кратно {i}')
+            break
+        elif i==5 and a%i!=0:
+            print(f'Число является простым')
+                   
+#test(1517)
